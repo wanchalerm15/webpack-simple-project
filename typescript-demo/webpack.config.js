@@ -1,5 +1,4 @@
 const path = require('path');
-const webpack = require('webpack');
 
 module.exports = {
     entry: './src/index.ts',
@@ -11,6 +10,10 @@ module.exports = {
                 test: /\.tsx?$/,
                 use: 'ts-loader',
                 exclude: /node_modules/
+            },
+            {
+                test: /\.(html)$/,
+                use: 'html-loader'
             }
         ]
     },
@@ -21,12 +24,11 @@ module.exports = {
         filename: 'bundle.js',
         path: path.resolve(__dirname, 'dist')
     },
-    plugins: [],
     devServer: {
         contentBase: './',
         historyApiFallback: true,
         inline: true,
         progress: true,
-        port: 8080,
+        port: 8080
     }
 };

@@ -1,2 +1,10 @@
 <h1>Home page</h1>
-<p>{{ title }}</p>xx
+<p>{{ title }}</p>
+<ul>
+    <li ng-repeat="item in items">
+        {{ item.firstname }} &nbsp; {{ item.lastname }}
+    </li>
+</ul>
+<a href="/login">Login page</a>
+<span> | </span>
+<a href="/register">Register page</a>
