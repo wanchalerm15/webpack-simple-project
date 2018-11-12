@@ -8,10 +8,15 @@ export function templateRoute(view, controller) {
         controller
     };
 };
-export function initialAutoload(directory) {
-    const controllerPath = './controllers';
-    require.context(controllerPath, true).keys().forEach(key => {
+export function initialAutoloadControllers() {
+    require.context('./controllers', true).keys().forEach(key => {
         if (key.indexOf('.js') >= 0) return;
-        console.log(key);
+        require(`./controllers${key.replace('.', '')}`);
+    });
+}
+export function initialAutoloadServices() {
+    require.context('./services', true).keys().forEach(key => {
+        if (key.indexOf('.js') >= 0) return;
+        require(`./services${key.replace('.', '')}`);
     });
 }
