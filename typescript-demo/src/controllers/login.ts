@@ -1,3 +1,4 @@
-export function LoginController() {
+import app from '../angular';
+app.controller('LoginController', ['$scope', (scope) => {
 
-}
+}]);

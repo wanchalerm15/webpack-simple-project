@@ -1,5 +1,6 @@
 import { HomeModel } from '../models/home';
-export function HomeController($scope) {
-    $scope.items = HomeModel;
-    $scope.title = 'Hello Home page';
-}
+import app from '../angular';
+app.controller('HomeController', ['$scope', (scope) => {
+    scope.items = HomeModel;
+    scope.title = 'Hello Home page';
+}]);
