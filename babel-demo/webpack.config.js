@@ -1,24 +1,26 @@
 const path = require('path');
 
 module.exports = {
-    entry: './src/index.ts',
+    entry: './src/index.js',
     mode: 'development',
     devtool: 'inline-source-map',
     module: {
         rules: [
             {
-                test: /\.tsx?$/,
-                use: 'ts-loader',
-                exclude: /node_modules/
+                test: /\.m?js$/,
+                exclude: /(node_modules|bower_components)/,
+                use: {
+                    loader: 'babel-loader',
+                    options: {
+                        presets: ['@babel/preset-env']
+                    }
+                }
             },
             {
                 test: /\.(html)$/,
                 use: 'html-loader'
             }
         ]
-    },
-    resolve: {
-        extensions: ['.tsx', '.ts', '.js']
     },
     output: {
         filename: 'bundle.js',

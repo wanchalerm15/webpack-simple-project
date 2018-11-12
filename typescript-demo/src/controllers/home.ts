@@ -1,5 +1,5 @@
-import { HomeItems } from './../models/home-model';
+import { HomeModel } from '../models/home';
 export function HomeController($scope) {
-    $scope.items = HomeItems;
+    $scope.items = HomeModel;
     $scope.title = 'Hello Home page';
 }
